@@ -1,0 +1,15 @@
+{
+  "name": "kolbo",
+  "description": "Official Kolbo.AI plugin for Claude Code. Minimal repo by design — only the manifest, the MCP server pointer, and the routing skill, so antivirus tools have almost nothing to scan. The SKILL.md is auto-synced from the canonical source in github.com/Zoharvan12/kolbo-code.",
+  "owner": {
+    "name": "Kolbo.AI",
+    "url": "https://kolbo.ai"
+  },
+  "plugins": [
+    {
+      "name": "kolbo",
+      "source": "./",
+      "description": "Kolbo AI generation tools (image, video, music, chat, App Builder) bundled with an MCP server and a routing skill."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "kolbo",
+  "description": "Use Kolbo.AI generation tools (image, video, music, speech, chat, App Builder, artifact publishing, and more) as native tools in Claude Code. Bundles the MCP server + the canonical Kolbo routing skill so the agent picks the right tool for the job.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Kolbo.AI",
+    "url": "https://kolbo.ai"
+  },
+  "homepage": "https://kolbo.ai",
+  "repository": "https://github.com/Zoharvan12/kolbo-claude-plugin",
+  "license": "MIT",
+  "keywords": [
+    "kolbo",
+    "ai",
+    "image-generation",
+    "video-generation",
+    "music-generation",
+    "mcp",
+    "creative"
+  ],
+  "userConfig": {
+    "api_key": {
+      "type": "string",
+      "title": "Kolbo API Key",
+      "description": "Your Kolbo API key. Create one at https://app.kolbo.ai/settings/api-keys",
+      "sensitive": true,
+      "required": true
+    },
+    "api_endpoint": {
+      "type": "string",
+      "title": "API Endpoint",
+      "description": "Override the API base URL (defaults to https://api.kolbo.ai/api). Whitelabel users should point to their tenant's API.",
+      "default": "https://api.kolbo.ai/api"
+    }
+  }
+}
