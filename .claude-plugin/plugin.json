@@ -1,7 +1,7 @@
 {
   "name": "kolbo",
   "description": "Use Kolbo.AI generation tools (image, video, music, speech, chat, App Builder, artifact publishing, and more) as native tools in Claude Code. Bundles the MCP server + the canonical Kolbo routing skill so the agent picks the right tool for the job.",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "author": {
     "name": "Kolbo.AI",
     "url": "https://kolbo.ai"
