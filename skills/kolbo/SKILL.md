@@ -2,18 +2,7 @@
 version: 0.9.25
 name: kolbo
 description: |
-  Generate, edit, analyze, and direct creative media through Kolbo AI: images,
-  video (Seedance, Veo, Kling, Hailuo), music, speech, sound, 3D, transcription,
-  Visual DNA, Creative Director batches, marketing assets, HTML artifacts, and
-  AI Docs, Flow node workflows and session/system prompts, and approved Blender scene control. Use for sophisticated AI
-  filmmaking as well as individual media:
-  scripts, production bibles, recurring characters and locations, acting,
-  dialogue, music performance, blocking, physics, multi-shot continuity,
-  connected scenes, prompt audits, feature-length production planning, end-to-end vertical micro-drama series (Micro-Drama Studio), and
-  direct Blender scene building through the connected Kolbo Blender plugin.
-
-  NOT for: unrelated standalone video editing / FFmpeg (use video-production), motion graphics
-  (use remotion-best-practices), code editing, or general chat.
+  Generate, edit, analyze, and direct creative media through Kolbo AI: images, video (Seedance, Veo, Kling, Hailuo), music, speech, sound, 3D, transcription, Visual DNA, Creative Director batches, marketing assets, HTML artifacts, and AI Docs, Flow node workflows and session/system prompts, and approved Blender scene control. Use for sophisticated AI filmmaking as well as individual media: scripts, production bibles, recurring characters and locations, acting, dialogue, music performance, blocking, physics, multi-shot continuity, connected scenes, prompt audits, feature-length production planning, end-to-end vertical micro-drama series (Micro-Drama Studio), and direct Blender scene building through the connected Kolbo Blender plugin. NOT for: unrelated standalone video editing / FFmpeg (use video-production), motion graphics (use remotion-best-practices), code editing, or general chat.
 argument-hint: "[prompt-or-command] [--model <name>] [--image <path>] [--video <path>]"
 allowed-tools: Bash, Read, Write, Edit
 ---
@@ -280,9 +269,7 @@ Dependencies accumulate: narrative Elements work requires **Kolbo + filmmaking +
 
 ## ⚠️ Seedance / Elements prompt contract (HARD RULE)
 
-Mode wins over model family. **Frames** (`generate_video_from_image`) and **First/Last Frame** (`generate_first_last_frame`) use ordinary motion/camera/transition prose grounded in the supplied composition, including on Seedance 2.5. Do not add Elements CAST/LOCATION blocks, invent DNA names, or enable cuts because a template says so. An ordinary uploaded frame is `@Image1`, not a DNA; an end frame is `@Image2`.
-
-For **Elements / text-driven multi-shot** work, `generate_elements`, Seedance 2 / 2.5, WAN, MiniMax H3, Gemini, and reference-composed video share the Locked Intro in `references/models/seedance.md`. Load `elements-prompting` first (craft, exact `@ImageN` mapping, eight elements), then compile:
+Mode wins over model family. **Frames** (`generate_video_from_image`) and **First/Last Frame** (`generate_first_last_frame`) use ordinary motion/camera/transition prose grounded in the supplied composition, including on Seedance 2.5. Do not add Elements CAST/LOCATION blocks, invent DNA names, or enable cuts because a template says so. An ordinary uploaded frame is `@Image1`, not a DNA; an end frame is `@Image2`. For **Elements / text-driven multi-shot** work, `generate_elements`, Seedance 2 / 2.5, WAN, MiniMax H3, Gemini, and reference-composed video share the Locked Intro in `references/models/seedance.md`. Load `elements-prompting` first (craft, exact `@ImageN` mapping, eight elements), then compile:
 
 `N connected cinematic shots, Xs total, AR, Multishot ON` → `Total: Xs / N shots / AR` → `[GLOBAL LOOK – LOCKED, APPLIES TO EVERY SHOT]` → `[CAST – IDENTICAL IN EVERY SHOT]` (each person is `@DNAName`) → `[LOCATION]` → LOCATION MAP / CONTINUITY / PHYSICS → `SHOT N — 0:00–0:02 — …` (ranges sum to Xs) → closing `Total: Xs / N shots / AR`. Pass MCP `duration: X` matching that Total. Omitting Total / Multishot is a failed compile — same contract as the Kolbo help widget.
 
