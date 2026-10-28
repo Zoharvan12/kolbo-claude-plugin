@@ -105,7 +105,6 @@ For multi-scene / batch work this pairs with `generate_creative_director` (see b
 Each `references/models/*.md` mirrors the matching skill prompt in `kolbo-api/src/config/systemPrompt.js` — same battle-tuned rules that power Kolbo's web-app help widget. Keep parity (see `packages/opencode/CLAUDE.md` "MCP & Skill Sync Rule").
 
 ## Available MCP Tools
-
 For music composition/reference/section edits, extensions and covers, Trends and Motion Library, Morphious Styles, Creative Director status, project copies and transfer responses, read `references/workflows/tool-operations.md`. For editable video timelines, read `references/workflows/video-editor.md`. Use `get_video_editor_schema`, `list_video_editor_sessions`, `get_video_editor_session`, `create_video_editor_session`, `update_video_editor_session`, and `export_video_editor_session`. Edit existing sessions in place using their saved revision; do not recreate them to rename or change clips.
 
 For personal font uploads, font selection, or reuse, read `references/workflows/personal-fonts.md`. Use the dedicated My Fonts tools; never the media-upload path or agent-rendered specimens.
@@ -175,7 +174,6 @@ Font tools (when exposed by the installed MCP): `list_fonts`, `get_font`, `uploa
 | `resolve_list_sessions` / `resolve_get_project` / `resolve_get_timeline` / `resolve_import_media` / `resolve_edit_timeline` / `resolve_run_script` / `resolve_capture_frame` / `resolve_get_command_status` | Connected DaVinci Resolve Studio control through the Kolbo Resolve plugin: timeline edits, Fusion titles, scripts and frame checks. Every change needs the editor's approval in the plugin; read `workflows/davinci-resolve.md` before the first call. |
 
 ## ⚠️ Edit in place — never delete+recreate (HARD RULE — always on)
-
 Existing Kolbo objects keep a stable id. Generations, `@Name` / `#Name` bindings, share links, and teammates already point at that id. Deleting and making a new one orphans those links and throws away the stored analysis.
 
 | What changed | Tool |
@@ -192,7 +190,6 @@ Existing Kolbo objects keep a stable id. Generations, `@Name` / `#Name` bindings
 `delete_*` is only for objects the user asked to remove.
 
 ## ⚠️ Visual DNA `@Name` in the prompt (HARD RULE — always on)
-
 Passing `visual_dna_ids` is **not enough**. For every DNA in that array you MUST also write `@ExactStoredName` in the prompt text (the `name` from `list_visual_dnas` / `create_visual_dna`). The engine binds identity by parsing `@tags`. No `@tag` → the DNA is wasted.
 
 - Right: `visual_dna_ids: ["vdna_…"]` + prompt `@Zohar walks into frame`
