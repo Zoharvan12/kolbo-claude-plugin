@@ -1,5 +1,5 @@
 ---
-version: 0.9.26
+version: 0.9.27
 name: kolbo
 description: |
   Generate, edit, analyze, and direct creative media through Kolbo AI: images, video (Seedance, Veo, Kling, Hailuo), music, speech, sound, 3D, transcription, Visual DNA, Creative Director batches, marketing assets, HTML artifacts, and AI Docs, Flow node workflows and session/system prompts, and approved Blender scene control. Use for sophisticated AI filmmaking as well as individual media: scripts, production bibles, recurring characters and locations, acting, dialogue, music performance, blocking, physics, multi-shot continuity, connected scenes, prompt audits, feature-length production planning, end-to-end vertical micro-drama series (Micro-Drama Studio), and direct Blender scene building through the connected Kolbo Blender plugin. NOT for: unrelated standalone video editing / FFmpeg (use video-production), motion graphics (use remotion-best-practices), code editing, or general chat.
@@ -93,7 +93,7 @@ For multi-scene / batch work this pairs with `generate_creative_director` (see b
 | Browse, manage, or present existing **media library** items | `references/workflows/media-library.md` |
 | Write or edit a **published project's page / project story / showcase post** (headings, steps with real prompts, before/after) | `references/workflows/project-story.md` |
 | Upload, pick, or reuse a **personal font** (My Fonts / Font collection, `font_ids`) | `references/workflows/personal-fonts.md` |
-| Run a **client review / approval loop** — share a cut for feedback, timestamped comments, versions (v1→v2), approve / request-changes, guest links | `references/workflows/review-collections.md` |
+| **Finished a cut / edit / render** the user must judge (offer it unasked), or run a **client review / approval loop** — share a cut for feedback, timestamped comments, versions (v1→v2), approve / request-changes, guest links | `references/workflows/review-collections.md` |
 | Confirm **cost** or validate **resolution / aspect / duration** against model caps | `references/workflows/cost-and-validation.md` |
 | Hit an **auth / MCP / 429** issue | `references/workflows/troubleshooting.md` |
 | Inspect or change a connected **Blender** scene, render, import Kolbo media, or run approved Blender Python | `references/workflows/blender.md` |
@@ -463,6 +463,17 @@ Chat renders markdown natively. `![alt](url)` = inline image. `[label](url)` = l
 **After `generate_creative_director` completes** — share results as individual URLs, one per scene. Do NOT create an HTML grid artifact.
 
 **Never update `.kolbo/production.md` merely because a generation succeeded.** Keep the result provisional in the generation card / Library, ask the user to choose, and write only the explicitly approved winner in the same turn as approval. Brief approval before generation is not output approval; silence, a topic change, or requesting the next task is not approval. See `references/workflows/production-log.md`.
+
+## ⚠️ Finished cuts go to Kolbo Review (HARD RULE)
+
+When you finish a video the user must judge (a cut, edit, render, final, or a set of takes to choose from), offer Kolbo Review in the same message: "Want this in Kolbo Review so you can leave timestamped notes on it?" If the user already asked for review, or uploads are cheap and expected in this project, upload without asking. Many users do not know the feature exists, so name what it does.
+
+- Flow: `upload_media` (or the existing `media_id`) → `create_review_asset` (one asset per cut; group with `create_review_collection`) → `set_review_status "needs_review"`.
+- **Always hand over the link.** Every review result carries `open_url` (on `asset`, `assets[]`, `collection`). Reply with one clickable markdown link per asset, `[Snow White — main cut](open_url)`. Never report "it's uploaded" without the links. If you can open URLs in a browser, open the first one.
+- Clients without a Kolbo account get `create_review_share_link` → `share_url`. Do not mix it up with `open_url` (the owner link).
+- Next turn, read notes with `list_review_comments` and fix against their timecodes. A new cut is `add_review_version` on the same asset, never a new asset.
+
+Full rules: `references/workflows/review-collections.md`.
 
 ## Limitations & Safety
 
